@@ -1,0 +1,144 @@
+:root {
+    --primary-pink: #ff85a2;
+    --light-pink: #fce4ec;
+    --dark-pink: #f06292;
+    --white: #ffffff;
+    --red: #d32f2f;
+    --light-red: #ffcdd2;
+    --border-color: #ff85a2;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(240, 98, 146, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 95%;
+}
+
+h1 {
+    color: var(--red);
+    margin-bottom: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+select, button {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-pink);
+    background-color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button#new-game {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button#new-game:hover {
+    background-color: #b71c1c;
+}
+
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    border: 3px solid var(--red);
+    margin-bottom: 1.5rem;
+    background-color: var(--white);
+}
+
+.cell {
+    aspect-ratio: 1;
+    border: 1px solid var(--light-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell:nth-child(3n) { border-right: 2px solid var(--primary-pink); }
+.cell:nth-child(9n) { border-right: none; }
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid var(--primary-pink);
+}
+
+.cell.selected {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+.cell.fixed {
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: default;
+}
+
+.cell.error {
+    color: var(--red);
+    background-color: var(--light-red);
+}
+
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.numpad-btn {
+    padding: 10px;
+    border: 1px solid var(--primary-pink);
+    background-color: var(--white);
+    color: var(--dark-pink);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.numpad-btn:hover {
+    background-color: var(--light-pink);
+}
+
+.numpad-btn.delete {
+    grid-column: span 1;
+    background-color: var(--light-red);
+    color: var(--red);
+}
+
+.status {
+    margin-top: 1rem;
+    height: 1.5rem;
+    font-weight: bold;
+    color: var(--red);
+}
+
+@media (max-width: 400px) {
+    .container { padding: 1rem; }
+    .cell { font-size: 1rem; }
+}

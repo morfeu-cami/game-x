@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Elegante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Elegante</h1>
+        
+        <div class="controls">
+            <div class="difficulty-selector">
+                <label for="difficulty">Dificuldade:</label>
+                <select id="difficulty">
+                    <option value="easy">Fácil</option>
+                    <option value="medium" selected>Médio</option>
+                    <option value="hard">Difícil</option>
+                </select>
+            </div>
+            <button id="new-game">Novo Jogo</button>
+        </div>
+
+        <div id="sudoku-board" class="sudoku-board">
+            <!-- O tabuleiro será gerado via JavaScript -->
+        </div>
+
+        <div class="number-pad">
+            <button class="numpad-btn" data-number="1">1</button>
+            <button class="numpad-btn" data-number="2">2</button>
+            <button class="numpad-btn" data-number="3">3</button>
+            <button class="numpad-btn" data-number="4">4</button>
+            <button class="numpad-btn" data-number="5">5</button>
+            <button class="numpad-btn" data-number="6">6</button>
+            <button class="numpad-btn" data-number="7">7</button>
+            <button class="numpad-btn" data-number="8">8</button>
+            <button class="numpad-btn" data-number="9">9</button>
+            <button class="numpad-btn delete" data-number="0">Apagar</button>
+        </div>
+
+        <div class="status">
+            <p id="message"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
